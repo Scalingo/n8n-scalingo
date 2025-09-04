@@ -8,9 +8,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "n8n": "^1.85.4"
+    "n8n": "^1.109.0"
   },
   "engines": {
-    "node": "20.18"
+    "node": "24"
   }
 }
