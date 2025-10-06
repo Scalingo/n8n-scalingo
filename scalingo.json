@@ -23,6 +23,10 @@
       "description": "Type of database to use to store N8N configuration",
       "value": "postgresdb",
       "required": true
+    },
+    "NODE_OPTIONS": {
+      "description": "Allow n8n to use more memory of the container",
+      "value": "--max-old-space-size-percentage=80"
     }
   },
   "addons": ["postgresql:postgresql-starter-512"]
