@@ -110,8 +110,10 @@ jobs:
             - \`npm ci\`
           EOF
 
-          if gh pr view "$branch" --json url --jq .url; then
-            gh pr edit "$branch" \
+          open_pr_url=$(gh pr list --head "$branch" --state open --json url --jq '.[0].url')
+
+          if [ -n "$open_pr_url" ]; then
+            gh pr edit "$open_pr_url" \
               --title "$title" \
               --body-file /tmp/update-n8n-pr-body.md \
               --add-reviewer leo-scalingo \
