@@ -8,9 +8,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "n8n": "2.27.5"
+    "n8n": "2.31.5"
   },
   "engines": {
     "node": "24"
+  },
+  "overrides": {
+    "xlsx": "./vendor/xlsx-0.20.3.tgz"
   }
 }
