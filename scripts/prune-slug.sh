@@ -20,30 +20,8 @@ find "$ROOT" -type f -name '*.map' -delete
 # TypeScript sources shipped alongside compiled JS (keep *.d.ts).
 find "$ROOT" -type f -name '*.ts' ! -name '*.d.ts' -delete
 
-# Docs / licenses / changelogs.
-# Use exact names or NAME.* — never NAME* (would delete runtime files like license-state.js).
-find "$ROOT" -type f \( \
-  -iname 'README' -o -iname 'README.*' -o \
-  -iname 'CHANGELOG' -o -iname 'CHANGELOG.*' -o \
-  -iname 'HISTORY' -o -iname 'HISTORY.*' -o \
-  -iname 'LICENSE' -o -iname 'LICENSE.*' -o \
-  -iname 'LICENCE' -o -iname 'LICENCE.*' -o \
-  -iname 'NOTICE' -o -iname 'NOTICE.*' -o \
-  -iname '*.md' -o \
-  -iname '*.markdown' \
-\) -delete
-
-# Test / CI / example trees that are never required at runtime.
-# Delete one directory at a time to avoid ARG_MAX limits with find -exec +.
-find "$ROOT" -depth -type d \( \
-  -name test -o \
-  -name tests -o \
-  -name __tests__ -o \
-  -name .github -o \
-  -name coverage -o \
-  -name example -o \
-  -name examples \
-\) -exec rm -rf {} \;
+# Markdown docs.
+find "$ROOT" -type f \( -iname '*.md' -o -iname '*.markdown' \) -delete
 
 after=$(du -sm "$ROOT" | cut -f1)
 echo "-----> Pruned $ROOT (${after}M after, saved $((before - after))M)"
