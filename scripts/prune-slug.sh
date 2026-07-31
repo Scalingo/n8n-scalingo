@@ -21,12 +21,14 @@ find "$ROOT" -type f -name '*.map' -delete
 find "$ROOT" -type f -name '*.ts' ! -name '*.d.ts' -delete
 
 # Docs / licenses / changelogs.
+# Use exact names or NAME.* — never NAME* (would delete runtime files like license-state.js).
 find "$ROOT" -type f \( \
-  -iname 'README*' -o \
-  -iname 'CHANGELOG*' -o \
-  -iname 'HISTORY*' -o \
-  -iname 'LICENSE*' -o \
-  -iname 'NOTICE*' -o \
+  -iname 'README' -o -iname 'README.*' -o \
+  -iname 'CHANGELOG' -o -iname 'CHANGELOG.*' -o \
+  -iname 'HISTORY' -o -iname 'HISTORY.*' -o \
+  -iname 'LICENSE' -o -iname 'LICENSE.*' -o \
+  -iname 'LICENCE' -o -iname 'LICENCE.*' -o \
+  -iname 'NOTICE' -o -iname 'NOTICE.*' -o \
   -iname '*.md' -o \
   -iname '*.markdown' \
 \) -delete
