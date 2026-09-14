@@ -4,11 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:Scalingo/n8n-scalingo.git",
   "scripts": {
-    "start": "./scripts/start.sh"
+    "start": "./scripts/start.sh",
+    "scalingo-cleanup": "./scripts/prune-slug.sh"
   },
   "license": "MIT",
   "dependencies": {
-    "n8n": "2.36.0"
+    "n8n": "stable"
   },
   "engines": {
     "node": "24"
