@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "n8n": "2.36.0"
+    "n8n": "stable"
   },
   "engines": {
     "node": "24"
